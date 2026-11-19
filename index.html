@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -6,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kartu Profil Portofolio Interaktif</title>
 
-    <!-- Menghubungkan file CSS eksternal -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,18 +15,27 @@
     <header class="main-header">
         <div class="header-container">
             <h1 class="brand-title">SMK Bakti Nusantara 666</h1>
+
             <nav class="main-nav">
                 <a href="beranda.html">Beranda</a>
                 <a href="index2.html" class="active">Pendaftaran</a>
+
+                <!-- Tombol Mode Gelap dan Terang -->
+                <button class="theme-toggle" id="themeToggle" type="button">
+                    <span id="themeIcon">🌙</span>
+                    <span id="themeText">Mode Gelap</span>
+                </button>
             </nav>
         </div>
     </header>
 
     <main class="profile-card">
+
         <!-- Foto Profil -->
         <div class="profile-image">
             <img src="amayy.jpeg" alt="Foto profil">
         </div>
+
         <div class="profile-status">
             Available for Projects
         </div>
@@ -63,39 +72,93 @@
             <span class="badge-skill">CSS3</span>
             <span class="badge-skill">Flexbox</span>
             <span class="badge-skill">JavaScript</span>
+        </div>
 
-<h2>Web Developer</h2>
+        <h2>Web Developer</h2>
 
+        <p class="description">
+            Halo! Saya seorang pelajar Rekayasa Perangkat Lunak
+            yang tertarik dengan dunia pemrograman dan desain web.
+        </p>
 
-            <p class="description">
-                Halo! Saya seorang pelajar Rekayasa Perangkat Lunak
-                yang tertarik dengan dunia pemrograman dan desain web.
-            </p>
+        <!-- Tombol Media Sosial -->
+        <div class="social-links">
 
-            <!-- Tombol Media Sosial -->
-            <div class="social-links">
-                <a href="https://www.instagram.com/faa_adhr?rpxt=MTN0dHQ4ZmJpaDJ3YQ==" target="_blank"
-                    rel="noopener noreferrer" class="social-button instagram">
-                    Instagram
-                </a>
-
-                <a href="https://github.com/fahmi123-hub/amayy" target="_blank" rel="noopener noreferrer"
-                    class="social-button github">
-                    GitHub
-                </a>
-
-                <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"
-                    class="social-button linkedin">
-                    LinkedIn
-                </a>
-            </div>
-
-            <!-- Tombol Kontak -->
-            <a href="mailto:fahmi12864@gmail.com" class="contact-button">
-                Hubungi Saya
+            <a href="https://www.instagram.com/faa_adhr?rpxt=MTN0dHQ4ZmJpaDJ3YQ=="
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-button instagram">
+                Instagram
             </a>
+
+            <a href="https://github.com/fahmi123-hub/amayy"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-button github">
+                GitHub
+            </a>
+
+            <a href="https://linkedin.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-button linkedin">
+                LinkedIn
+            </a>
+
+        </div>
+
+        <!-- Tombol Kontak -->
+        <a href="mailto:fahmi12864@gmail.com" class="contact-button">
+            Hubungi Saya
+        </a>
+
     </main>
 
-</body>
+    <!-- JavaScript Mode Gelap dan Terang -->
+    <script>
+        const themeToggle = document.getElementById("themeToggle");
+        const themeIcon = document.getElementById("themeIcon");
+        const themeText = document.getElementById("themeText");
 
+        // Mengambil tema yang tersimpan
+        let savedTheme = localStorage.getItem("theme");
+
+        // Menerapkan tema ketika halaman dibuka
+        if (savedTheme === "dark") {
+            document.body.classList.add("dark-mode");
+        }
+
+        // Mengubah ikon dan tulisan tombol
+        function updateThemeButton() {
+            const isDark = document.body.classList.contains("dark-mode");
+
+            if (isDark) {
+                themeIcon.textContent = "☀️";
+                themeText.textContent = "Mode Terang";
+            } else {
+                themeIcon.textContent = "🌙";
+                themeText.textContent = "Mode Gelap";
+            }
+        }
+
+        // Menampilkan tombol sesuai tema
+        updateThemeButton();
+
+        // Fungsi mengganti tema
+        themeToggle.addEventListener("click", function () {
+
+            document.body.classList.toggle("dark-mode");
+
+            const isDark = document.body.classList.contains("dark-mode");
+
+            // Menyimpan pilihan tema
+            localStorage.setItem("theme", isDark ? "dark" : "light");
+
+            // Memperbarui tombol
+            updateThemeButton();
+
+        });
+    </script>
+
+</body>
 </html>
