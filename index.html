@@ -25,12 +25,6 @@
 
     <main class="profile-card">
 
-        <!-- TOMBOL MODE GELAP TERANG -->
-        <button class="theme-toggle" id="themeToggle" type="button"
-            aria-label="Ganti mode gelap dan terang">
-            🌙
-        </button>
-
         <!-- Foto Profil -->
         <div class="profile-image">
             <img src="amayy.jpeg" alt="Foto profil">
@@ -113,44 +107,6 @@
         </a>
 
     </main>
-
-    <!-- JAVASCRIPT MODE GELAP DAN TERANG -->
-    <script>
-        const themeToggle = document.getElementById("themeToggle");
-
-        // Mengambil tema tersimpan
-        const savedTheme = localStorage.getItem("theme");
-
-        // Menerapkan tema saat halaman dibuka
-        if (savedTheme === "dark") {
-            document.body.classList.add("dark-mode");
-        }
-
-        // Mengubah ikon tombol
-        function updateThemeIcon() {
-            if (document.body.classList.contains("dark-mode")) {
-                themeToggle.textContent = "☀️";
-                themeToggle.setAttribute("aria-label", "Aktifkan mode terang");
-            } else {
-                themeToggle.textContent = "🌙";
-                themeToggle.setAttribute("aria-label", "Aktifkan mode gelap");
-            }
-        }
-
-        updateThemeIcon();
-
-        // Mengganti tema saat tombol diklik
-        themeToggle.addEventListener("click", function () {
-
-            document.body.classList.toggle("dark-mode");
-
-            const isDark = document.body.classList.contains("dark-mode");
-
-            localStorage.setItem("theme", isDark ? "dark" : "light");
-
-            updateThemeIcon();
-        });
-    </script>
 
 </body>
 </html>
