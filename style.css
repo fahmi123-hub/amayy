@@ -17,10 +17,10 @@ body {
    HEADER
 ========================= */
 .main-header {
-    width: 100%;
-    background: #1e293b;
-    border-bottom: 1px solid #e2e8f0;
-    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.05);
+    background-color: #1e293b;
+    color: #ffffff;
+    padding: 16px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .header-container {
